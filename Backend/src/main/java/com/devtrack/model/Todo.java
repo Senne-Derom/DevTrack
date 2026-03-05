@@ -1,4 +1,4 @@
-package model;
+package com.devtrack.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,6 +13,9 @@ public class Todo {
 
     private String name;
     private String description;
+
+    public Todo() {
+    }
 
     public Todo(String name, String description) {
         this.name = name;

@@ -1,7 +1,7 @@
-package repository;
+package com.devtrack.repository;
 
 
-import model.Todo;
+import com.devtrack.model.Todo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TodoRepository extends JpaRepository<Todo, Long> {

@@ -1,10 +1,10 @@
-package controller;
+package com.devtrack.controller;
 
-import model.Todo;
+import com.devtrack.model.Todo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import service.TodoService;
+import com.devtrack.service.TodoService;
 
 import java.util.List;
 

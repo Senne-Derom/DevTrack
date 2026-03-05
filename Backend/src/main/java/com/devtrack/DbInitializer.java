@@ -1,8 +1,9 @@
+package com.devtrack;
+
+import com.devtrack.repository.TodoRepository;
 import jakarta.annotation.PostConstruct;
-import model.Todo;
+import com.devtrack.model.Todo;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PostMapping;
-import repository.TodoRepository;
 
 @Component
 public class DbInitializer {

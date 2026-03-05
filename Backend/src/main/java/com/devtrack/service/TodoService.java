@@ -1,8 +1,8 @@
-package service;
+package com.devtrack.service;
 
-import model.Todo;
+import com.devtrack.model.Todo;
 import org.springframework.stereotype.Service;
-import repository.TodoRepository;
+import com.devtrack.repository.TodoRepository;
 
 import java.util.List;
 
