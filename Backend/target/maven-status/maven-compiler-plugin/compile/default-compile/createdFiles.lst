@@ -1,0 +1,7 @@
+com\devtrack\config\SecurityConfig.class
+com\devtrack\repository\TodoRepository.class
+com\devtrack\service\TodoService.class
+com\devtrack\DevtrackBackendApplication.class
+com\devtrack\model\Todo.class
+com\devtrack\controller\TodoController.class
+com\devtrack\DbInitializer.class
