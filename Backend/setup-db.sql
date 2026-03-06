@@ -1,0 +1,21 @@
+---- Run this script in PostgreSQL to set up the database
+---- You can execute this using: psql -U postgres -f setup-db.sql
+--
+---- Create the database if it doesn't exist
+--SELECT 'CREATE DATABASE devtrack'
+--WHERE NOT EXISTS (SELECT FROM pg_database WHERE datname = 'devtrack')\gexec
+--
+---- Connect to the devtrack database
+--\c devtrack
+--
+---- Create the todos table
+--DROP TABLE IF EXISTS todos;
+--
+--CREATE TABLE todos (
+--    id SERIAL PRIMARY KEY,
+--    name VARCHAR(255) NOT NULL,
+--    description TEXT,
+--    end_date TIMESTAMP,
+--    progress VARCHAR(255)
+--);
+--
