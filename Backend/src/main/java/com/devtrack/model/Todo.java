@@ -1,10 +1,7 @@
 package com.devtrack.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
@@ -20,12 +17,20 @@ public class Todo {
     private Date end_date;
     private String progress;
 
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private Project project;
+
     public Todo() {
     }
 
-    public Todo(String name, String description) {
+    public Todo(String name, String description, Date end_date, String progress, Project project) {
         this.name = name;
         this.description = description;
+        this.end_date = end_date;
+        this.progress = progress;
+        this.project = project;
     }
 
     public String getName() {
@@ -42,5 +47,29 @@ public class Todo {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Date getEnd_date() {
+        return end_date;
+    }
+
+    public void setEnd_date(Date end_date) {
+        this.end_date = end_date;
+    }
+
+    public String getProgress() {
+        return progress;
+    }
+
+    public void setProgress(String progress) {
+        this.progress = progress;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 }
