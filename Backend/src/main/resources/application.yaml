@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/devtrack
-    username: postgres
-    password: postgres
+    url: ${database_url}
+    username: ${database_username}
+    password: ${database_password}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
