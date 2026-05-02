@@ -25,7 +25,6 @@ public class StudyEntryService {
         newStudyEntry.setDate(studyEntryInput.date());
 
         Course foundCourse = studyEntryInput.course();
-        foundCourse.addStudyEntry(newStudyEntry);
         courseRepository.save(foundCourse);
 
         return studyEntryRepository.save(newStudyEntry);

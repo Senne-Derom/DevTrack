@@ -15,7 +15,7 @@ public class Course {
     private String name;
     @OneToMany(mappedBy = "course")
     @JsonManagedReference
-    private ArrayList<StudyEntry> studyEntries = new ArrayList<>();
+    private List<StudyEntry> studyEntries = new ArrayList<>();
 
     public Course(String name) {
         this.name = name;
