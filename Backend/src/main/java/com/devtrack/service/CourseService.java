@@ -1,6 +1,9 @@
 package com.devtrack.service;
 
+import com.devtrack.DTO.CourseInput;
+import com.devtrack.model.Course;
 import com.devtrack.repository.CourseRepository;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -9,5 +12,11 @@ public class CourseService {
 
     public CourseService (CourseRepository courseRepository) {
         this.courseRepository = courseRepository;
+    }
+
+    public Course addCourse(@Valid CourseInput courseInput) {
+        Course newCourse = new Course();
+        newCourse.setName(courseInput.name());
+        return courseRepository.save(newCourse);
     }
 }
