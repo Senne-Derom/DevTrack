@@ -1,12 +1,10 @@
 import Header from "@/components/Header";
 
-const RootLayout = async ({
+export default function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locale: string }>;
-}) => {
+}) {
   return (
     <html lang="en">
       <body>
@@ -17,7 +15,4 @@ const RootLayout = async ({
       </body>
     </html>
   );
-};
-
-export default RootLayout;
-
+}

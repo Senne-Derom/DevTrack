@@ -7,7 +7,7 @@ interface Props {
     studyEntries: StudyEntry[];
 }
 
-const AddStudyEntryOverview: React.fc = () => {
+const AddStudyEntryOverview: React.FC = () => {
     const [course, setCourse] = useState("");
 
     return (
