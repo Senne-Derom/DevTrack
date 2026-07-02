@@ -16,11 +16,18 @@ const AddStudyEntryOverview: React.FC = () => {
                 <label htmlFor="courseInput">Select course:</label>
                 <select id="courseInput">
                     <option value="">--Select a course--</option>
-                
-
                 </select>
-
             </div>
+            <div>
+                <label htmlFor="descriptionInput">Description:</label>
+                <input type="text" id="descriptionInput" name="description" placeholder="Enter description" />
+            </div>
+            <div>
+                <label htmlFor="dateInput">Date:</label>
+                <input type="date" id="dateInput" name="date" />
+            </div>
+
+            <button type="submit">Add Study Entry</button>
         </form>
     )
 }
