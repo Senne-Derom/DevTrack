@@ -6,6 +6,7 @@ import Link from "next/link";
 const Header: React.FC = () => {
     return (
         <header>
+            <Link href="/">Home</Link>
             <Link href="/addStudy">Add Study</Link>
         </header>
     )
