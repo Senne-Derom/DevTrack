@@ -29,8 +29,8 @@ if [ "$LOCAL" != "$REMOTE" ]; then
     npm run build
 
     echo "Restarting services..."
-    systemctl restart backend
-    systemctl restart frontend
+    sudo systemctl restart backend
+    sudo systemctl restart frontend
 
     echo "Deployment complete."
 else
