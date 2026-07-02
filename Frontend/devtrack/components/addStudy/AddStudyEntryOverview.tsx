@@ -16,6 +16,7 @@ const AddStudyEntryOverview: React.FC = () => {
                 <label htmlFor="courseInput">Select course:</label>
                 <select id="courseInput">
                     <option value="">--Select a course--</option>
+                
 
                 </select>
 
@@ -24,3 +25,4 @@ const AddStudyEntryOverview: React.FC = () => {
     )
 }
 
+export default AddStudyEntryOverview;
