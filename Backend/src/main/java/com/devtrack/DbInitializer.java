@@ -4,9 +4,13 @@ import com.devtrack.model.Course;
 import com.devtrack.model.StudyEntry;
 import com.devtrack.repository.CourseRepository;
 import com.devtrack.repository.StudyEntryRepository;
+import jakarta.annotation.PostConstruct;
+import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
+@Component
 public class DbInitializer {
     private final CourseRepository courseRepository;
     private final StudyEntryRepository studyEntryRepository;
@@ -16,6 +20,8 @@ public class DbInitializer {
         this.studyEntryRepository = studyEntryRepository;
     }
 
+    @PostConstruct
+    @Transactional
     public void initialize() {
         Course course1 = new Course("Mathematics");
         Course course2 = new Course("Physics");
