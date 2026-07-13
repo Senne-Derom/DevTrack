@@ -7,7 +7,11 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="015f794b-5a80-4d16-a5ec-198837475d50" name="Changes" comment="set up Next.js app" />
+    <list default="true" id="015f794b-5a80-4d16-a5ec-198837475d50" name="Changes" comment="set up Next.js app">
+      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/devtrack/DTO/CourseInput.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/devtrack/DTO/CourseInput.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/devtrack/model/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/devtrack/model/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,6 +129,7 @@
       <workItem from="1782814612019" duration="9464000" />
       <workItem from="1783718507174" duration="1318000" />
       <workItem from="1783950388318" duration="991000" />
+      <workItem from="1783968706141" duration="444000" />
     </task>
     <task id="LOCAL-00001" summary="set up Next.js app">
       <option name="closed" value="true" />

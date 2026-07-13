@@ -11,6 +11,7 @@ create table study_entries (
     id serial primary key,
     course_id bigint,
     description varchar(255),
+    time double precision,
     date timestamp,
     foreign key (course_id) references courses(id)
 );

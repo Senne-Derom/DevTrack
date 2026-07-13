@@ -30,8 +30,8 @@ public class DbInitializer {
         courseRepository.save(course2);
         courseRepository.save(course3);
 
-        studyEntryRepository.save(new StudyEntry((Course) courseRepository.findByName("Programming 1").orElseThrow(), "Complete exercises from class", LocalDate.now()));
-        studyEntryRepository.save(new StudyEntry((Course) courseRepository.findByName("Server and System Management").orElseThrow(), "Make DNS assignment", LocalDate.now()));
-        studyEntryRepository.save(new StudyEntry((Course) courseRepository.findByName("Software Engineering").orElseThrow(), "Implement Flyway", LocalDate.now()));
+        studyEntryRepository.save(new StudyEntry((Course) courseRepository.findByName("Programming 1").orElseThrow(), "Completed exercises from class", 1, LocalDate.now()));
+        studyEntryRepository.save(new StudyEntry((Course) courseRepository.findByName("Server and System Management").orElseThrow(), "Made DNS assignment", 2.5, LocalDate.now()));
+        studyEntryRepository.save(new StudyEntry((Course) courseRepository.findByName("Software Engineering").orElseThrow(), "Implemented Flyway", 2, LocalDate.now()));
     }
 }

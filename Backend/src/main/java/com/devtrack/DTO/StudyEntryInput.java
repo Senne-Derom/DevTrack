@@ -12,6 +12,8 @@ public record StudyEntryInput(
         @NotBlank
         String description,
         @NotNull
+        double time,
+        @NotNull
         LocalDate date
 ) {
 }
