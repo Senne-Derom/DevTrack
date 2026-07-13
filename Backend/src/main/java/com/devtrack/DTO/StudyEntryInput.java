@@ -12,7 +12,7 @@ public record StudyEntryInput(
         @NotBlank
         String description,
         @NotNull
-        double time,
+        double timeSpent,
         @NotNull
         LocalDate date
 ) {

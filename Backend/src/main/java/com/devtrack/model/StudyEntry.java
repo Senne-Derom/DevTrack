@@ -16,13 +16,13 @@ public class StudyEntry {
     @JsonBackReference
     private Course course;
     private String description;
-    private double time;
+    private double timeSpent;
     private LocalDate date;
 
-    public StudyEntry(Course course, String description, double time, LocalDate date) {
+    public StudyEntry(Course course, String description, double timeSpent, LocalDate date) {
         this.course = course;
         this.description = description;
-        this.time = time;
+        this.timeSpent = timeSpent;
         this.date = date;
     }
 
@@ -44,12 +44,12 @@ public class StudyEntry {
         this.description = description;
     }
 
-    public double getTime() {
-        return time;
+    public double getTimeSpent() {
+        return timeSpent;
     }
 
-    public void setTime(double time) {
-        this.time = time;
+    public void setTimeSpent(double timeSpent) {
+        this.timeSpent = timeSpent;
     }
 
     public LocalDate getDate() {
