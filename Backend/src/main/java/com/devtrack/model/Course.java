@@ -13,12 +13,14 @@ public class Course {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    private int study_points;
     @OneToMany(mappedBy = "course")
     @JsonManagedReference
     private List<StudyEntry> studyEntries = new ArrayList<>();
 
-    public Course(String name) {
+    public Course(String name, int study_points) {
         this.name = name;
+        this.study_points = study_points;
     }
 
     public Course() {}
@@ -29,6 +31,14 @@ public class Course {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getStudy_points() {
+        return study_points;
+    }
+
+    public void setStudy_points(int study_points) {
+        this.study_points = study_points;
     }
 
     public void addStudyEntry(StudyEntry entry) {

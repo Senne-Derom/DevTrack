@@ -7,15 +7,7 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="015f794b-5a80-4d16-a5ec-198837475d50" name="Changes" comment="set up Next.js app">
-      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/devtrack/controller/CourseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/devtrack/controller/CourseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/devtrack/repository/CourseRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/devtrack/repository/CourseRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Backend/src/main/java/com/devtrack/service/CourseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/src/main/java/com/devtrack/service/CourseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/devtrack/components/addStudy/AddStudyEntryOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/components/addStudy/AddStudyEntryOverview.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/devtrack/services/StudyService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/services/StudyService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/devtrack/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/types/index.ts" afterDir="false" />
-    </list>
+    <list default="true" id="015f794b-5a80-4d16-a5ec-198837475d50" name="Changes" comment="set up Next.js app" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -132,7 +124,7 @@
       <workItem from="1782592337723" duration="1787000" />
       <workItem from="1782814612019" duration="9464000" />
       <workItem from="1783718507174" duration="1318000" />
-      <workItem from="1783950388318" duration="513000" />
+      <workItem from="1783950388318" duration="991000" />
     </task>
     <task id="LOCAL-00001" summary="set up Next.js app">
       <option name="closed" value="true" />

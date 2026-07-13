@@ -23,15 +23,15 @@ public class DbInitializer {
     @PostConstruct
     @Transactional
     public void initialize() {
-        Course course1 = new Course("Mathematics");
-        Course course2 = new Course("Physics");
-        Course course3 = new Course("Chemistry");
+        Course course1 = new Course("Programming 1", 6);
+        Course course2 = new Course("Server and System Management", 6);
+        Course course3 = new Course("Software Engineering", 6);
         courseRepository.save(course1);
         courseRepository.save(course2);
         courseRepository.save(course3);
 
-        studyEntryRepository.save(new StudyEntry((Course) courseRepository.findByName("Mathematics").orElseThrow(), "Calculus homework", LocalDate.now()));
-        studyEntryRepository.save(new StudyEntry((Course) courseRepository.findByName("Physics").orElseThrow(), "Lab report", LocalDate.now()));
-        studyEntryRepository.save(new StudyEntry((Course) courseRepository.findByName("Chemistry").orElseThrow(), "Organic chemistry notes", LocalDate.now()));
+        studyEntryRepository.save(new StudyEntry((Course) courseRepository.findByName("Programming 1").orElseThrow(), "Complete exercises from class", LocalDate.now()));
+        studyEntryRepository.save(new StudyEntry((Course) courseRepository.findByName("Server and System Management").orElseThrow(), "Make DNS assignment", LocalDate.now()));
+        studyEntryRepository.save(new StudyEntry((Course) courseRepository.findByName("Software Engineering").orElseThrow(), "Implement Flyway", LocalDate.now()));
     }
 }

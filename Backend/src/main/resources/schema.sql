@@ -3,7 +3,8 @@ drop table if exists courses;
 
 create table courses (
     id serial primary key,
-    name varchar(50)
+    name varchar(50),
+    study_points int
 );
 
 create table study_entries (
