@@ -1,13 +1,13 @@
 export type StudyEntry = {
-    id: number;
-    course: Course;
-    date: Date;
-    description: string;
+  id: number;
+  course: Course;
+  date: Date;
+  timeSpent: number;
+  description: string;
 };
 
 export type Course = {
-    id: number;
-    name: string;
-    studyEntries: StudyEntry[];
+  id: number;
+  name: string;
+  studyEntries: StudyEntry[];
 };
-

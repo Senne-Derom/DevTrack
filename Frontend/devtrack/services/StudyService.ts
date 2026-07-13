@@ -15,6 +15,7 @@ const apiUrl = (path: string) => `${API_BASE_URL}${path}`;
 export type AddStudyEntryInput = {
   course: Pick<Course, "id" | "name">;
   description: string;
+  timeSpent: number;
   date: string;
 };
 

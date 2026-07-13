@@ -14,6 +14,7 @@ const AddStudyEntryOverview: React.FC = () => {
   const [coursesError, setCoursesError] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [timeSpent, setTimeSpent] = useState<number>(0);
 
   useEffect(() => {
     const loadCourses = async () => {
@@ -46,6 +47,7 @@ const AddStudyEntryOverview: React.FC = () => {
     return (
       selectedCourseId.trim() !== "" &&
       date.trim() !== "" &&
+      timeSpent != 0 &&
       description.trim() !== ""
     );
   };
@@ -58,13 +60,13 @@ const AddStudyEntryOverview: React.FC = () => {
 
     if (!validate()) {
       setErrorMessage(
-        "Please select a course and fill in the description and date.",
+        "Please select a course and fill in the description, time spent and date.",
       );
       return;
     }
 
     const selectedCourse = courses.find(
-      (course) => String(course.id) === selectedCourseId,
+      (course) => Number(course.id) === Number(selectedCourseId),
     );
 
     if (!selectedCourse) {
@@ -81,11 +83,13 @@ const AddStudyEntryOverview: React.FC = () => {
           name: selectedCourse.name,
         },
         description: description.trim(),
+        timeSpent: timeSpent,
         date,
       });
 
       setSuccessMessage("Study entry added successfully.");
       setDate("");
+      setTimeSpent(0);
       setDescription("");
     } catch (error) {
       setErrorMessage(
@@ -126,6 +130,17 @@ const AddStudyEntryOverview: React.FC = () => {
           value={description}
           onChange={(event) => setDescription(event.target.value)}
           placeholder="Enter description"
+        />
+      </div>
+      <div>
+        <label htmlFor="timeSpentInput">Time spent:</label>
+        <input
+          type="number"
+          step="0.5"
+          id="timeSpentInput"
+          name="timeSpent"
+          value={timeSpent}
+          onChange={(event) => setTimeSpent(Number(event.target.value))}
         />
       </div>
       <div>
