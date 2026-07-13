@@ -4,10 +4,9 @@ import com.devtrack.DTO.CourseInput;
 import com.devtrack.model.Course;
 import com.devtrack.service.CourseService;
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/courses")
@@ -16,6 +15,11 @@ public class CourseController {
 
     public CourseController (CourseService courseService) {
         this.courseService = courseService;
+    }
+
+    @GetMapping
+    public List<Course> getAllCourses() {
+        return courseService.getAllCourses();
     }
 
     @PostMapping("/addCourse")

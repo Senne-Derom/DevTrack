@@ -6,6 +6,8 @@ import com.devtrack.repository.CourseRepository;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CourseService {
     private final CourseRepository courseRepository;
@@ -18,5 +20,9 @@ public class CourseService {
         Course newCourse = new Course();
         newCourse.setName(courseInput.name());
         return courseRepository.save(newCourse);
+    }
+
+    public List<Course> getAllCourses() {
+        return courseRepository.findAll();
     }
 }

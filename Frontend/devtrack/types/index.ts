@@ -1,13 +1,13 @@
 export type StudyEntry = {
     id: number;
     course: Course;
-    description: String;
     date: Date;
+    description: string;
 };
 
 export type Course = {
     id: number;
-    name: String;
+    name: string;
     studyEntries: StudyEntry[];
 };
 
