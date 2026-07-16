@@ -40,7 +40,6 @@ const StudyEntryOverview: React.FC = () => {
           <p>{studyEntry.timeSpent} hours</p>
         </>
       ))}
-      ;
     </div>
   );
 };
