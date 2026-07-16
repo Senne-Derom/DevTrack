@@ -59,4 +59,8 @@ public class StudyEntry {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+
+    public String getCourseName() {
+        return course.getName();
+    }
 }
