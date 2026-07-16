@@ -6,6 +6,9 @@ import com.devtrack.model.StudyEntry;
 import com.devtrack.repository.CourseRepository;
 import com.devtrack.repository.StudyEntryRepository;
 import jakarta.validation.Valid;
+
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,5 +31,9 @@ public class StudyEntryService {
         courseRepository.save(foundCourse);
 
         return studyEntryRepository.save(newStudyEntry);
+    }
+
+    public List<StudyEntry> getStudyEntries() {
+        return studyEntryRepository.findAll();
     }
 }

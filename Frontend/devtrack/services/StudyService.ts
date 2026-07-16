@@ -1,4 +1,4 @@
-import type { Course } from "@/types";
+import type { Course, StudyEntry } from "@/types";
 
 const configuredApiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL?.trim();
 
@@ -25,6 +25,17 @@ export const getCourses = async (): Promise<Course[]> => {
   if (!response.ok) {
     const errorText = await response.text();
     throw new Error(errorText || "Failed to load courses");
+  }
+
+  return response.json();
+};
+
+export const getStudyEntries = async (): Promise<StudyEntry[]> => {
+  const response = await fetch(apiUrl("/study_entries"));
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(errorText || "Failed to load study entries");
   }
 
   return response.json();
