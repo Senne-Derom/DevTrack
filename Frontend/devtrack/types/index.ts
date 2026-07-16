@@ -4,6 +4,7 @@ export type StudyEntry = {
   date: Date;
   timeSpent: number;
   description: string;
+  courseName: string;
 };
 
 export type Course = {

@@ -34,9 +34,10 @@ const StudyEntryOverview: React.FC = () => {
     <div>
       {studyEntries.map((studyEntry) => (
         <>
+          <h3>{studyEntry.courseName}</h3>
           <p>{studyEntry.date.toString()}</p>
           <p>{studyEntry.description}</p>
-          <p>{studyEntry.timeSpent}</p>
+          <p>{studyEntry.timeSpent} hours</p>
         </>
       ))}
       ;
