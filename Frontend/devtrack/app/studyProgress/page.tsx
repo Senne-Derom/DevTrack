@@ -7,7 +7,7 @@ export default function studyProgressPage() {
   return (
     <div>
       <CourseProgressOverview />
-      <StudyEntryOverview />
+      {/* <StudyEntryOverview /> */}
     </div>
   );
 }

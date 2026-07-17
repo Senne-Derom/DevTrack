@@ -30,19 +30,26 @@ const CourseProgressOverview: React.FC = () => {
 
   return (
     <div>
-      {courses.map((course) => (
-        <>
-          <h3>{course.name}</h3>.
-          <p>
-            Total time:{" "}
-            {course.studyEntries.reduce(
-              (sum, entry) => sum + entry.timeSpent,
-              0,
-            )}{" "}
-            hours
-          </p>
-        </>
-      ))}
+      {courses.map((course) => {
+        const totalTime = course.studyEntries.reduce(
+          (sum, entry) => sum + entry.timeSpent,
+          0,
+        );
+        console.log(course);
+        return (
+          <div>
+            <h3>{course.name}</h3>
+            <p
+              style={{
+                color:
+                  totalTime < 1 ? "green" : totalTime <= 2 ? "orange" : "red",
+              }}
+            >
+              {totalTime} Total time
+            </p>
+          </div>
+        );
+      })}
     </div>
   );
 };
