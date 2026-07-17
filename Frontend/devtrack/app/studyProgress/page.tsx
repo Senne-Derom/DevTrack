@@ -6,8 +6,10 @@ import StudyEntryOverview from "@/components/studyEntryOverview/StudyEntryOvervi
 export default function studyProgressPage() {
   return (
     <div>
+      <h2>Progress overview per course</h2>
       <CourseProgressOverview />
-      {/* <StudyEntryOverview /> */}
+      <h2>Overview of all study entries</h2>
+      <StudyEntryOverview />
     </div>
   );
 }

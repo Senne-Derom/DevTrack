@@ -10,5 +10,6 @@ export type StudyEntry = {
 export type Course = {
   id: number;
   name: string;
+  study_points: number;
   studyEntries: StudyEntry[];
 };
