@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CourseService {
@@ -17,6 +18,11 @@ public class CourseService {
     }
 
     public Course addCourse(@Valid CourseInput courseInput) {
+        Optional<Object> existingCourses = courseRepository.findByName(courseInput.name());
+        if (existingCourses.isPresent()) {
+            throw new RuntimeException("Course with name " + courseInput.name() + " already exists");
+        }
+
         Course newCourse = new Course();
         newCourse.setName(courseInput.name());
         return courseRepository.save(newCourse);
