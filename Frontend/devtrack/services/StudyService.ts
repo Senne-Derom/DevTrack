@@ -57,3 +57,20 @@ export const addStudyEntry = async (studyEntry: AddStudyEntryInput) => {
 
   return response.json();
 };
+
+export const addCourse = async (course: Course) => {
+    const response = await fetch(apiUrl("/courses/addCourse"), {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(course)
+    });
+
+    if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText || "Failed to add course");
+    }
+
+    return response.json();
+};

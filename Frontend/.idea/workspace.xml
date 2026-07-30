@@ -8,8 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="015f794b-5a80-4d16-a5ec-198837475d50" name="Changes" comment="set up Next.js app">
+      <change afterPath="$PROJECT_DIR$/devtrack/app/addCourse/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/devtrack/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtrack/components/addCourse/AddCourseOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/components/addCourse/AddCourseOverview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtrack/services/StudyService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/services/StudyService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtrack/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/types/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +75,7 @@
           </model>
         </option>
         <option name="targetType" value="BACKGROUND" />
+        <option name="worktreeMode" value="WORKSPACE" />
       </template>
     </option>
   </component>
@@ -131,6 +135,7 @@
       <workItem from="1783968706141" duration="444000" />
       <workItem from="1785323056767" duration="143000" />
       <workItem from="1785330681307" duration="61000" />
+      <workItem from="1785448114703" duration="1346000" />
     </task>
     <task id="LOCAL-00001" summary="set up Next.js app">
       <option name="closed" value="true" />
