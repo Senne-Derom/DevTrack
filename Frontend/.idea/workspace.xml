@@ -8,10 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="015f794b-5a80-4d16-a5ec-198837475d50" name="Changes" comment="set up Next.js app">
-      <change afterPath="$PROJECT_DIR$/devtrack/app/addCourse/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtrack/app/addCourse/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/app/add-course/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtrack/app/addStudy/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/app/add-study/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtrack/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtrack/app/studyProgress/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/app/study-progress/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtrack/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/components/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/devtrack/components/addCourse/AddCourseOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/components/addCourse/AddCourseOverview.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/devtrack/services/StudyService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/services/StudyService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtrack/components/courseProgress/courseProgressOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/components/courseProgress/CourseProgressOverview.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/devtrack/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/types/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,7 +74,7 @@
         <option name="modeId" value="Agent" />
         <option name="model">
           <model>
-            <option name="modelType" value="builtin_family" />
+            <option name="modelType" value="builtin_id" />
             <option name="modelValue" value="auto" />
           </model>
         </option>
@@ -135,7 +139,8 @@
       <workItem from="1783968706141" duration="444000" />
       <workItem from="1785323056767" duration="143000" />
       <workItem from="1785330681307" duration="61000" />
-      <workItem from="1785448114703" duration="1346000" />
+      <workItem from="1785448114703" duration="3285000" />
+      <workItem from="1785492769797" duration="345000" />
     </task>
     <task id="LOCAL-00001" summary="set up Next.js app">
       <option name="closed" value="true" />

@@ -7,9 +7,9 @@ const Header: React.FC = () => {
   return (
     <header>
       <Link href="/">Home</Link>
-      <Link href="/studyProgress">Study Progress</Link>
-      <Link href="/addStudy">Add StudyEntry</Link>
-      <Link href="/addCourse">Add Course</Link>
+      <Link href="/study-progress">Study Progress</Link>
+      <Link href="/add-study">Add StudyEntry</Link>
+      <Link href="/add-course">Add Course</Link>
     </header>
   );
 };

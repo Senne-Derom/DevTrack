@@ -1,5 +1,3 @@
-"use client";
-
 import AddCourseOverview from "@/components/addCourse/AddCourseOverview";
 
 export default function addCoursePage() {

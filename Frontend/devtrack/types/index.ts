@@ -1,7 +1,7 @@
 export type StudyEntry = {
   id: number;
   course: Course;
-  date: Date;
+  date: string;
   timeSpent: number;
   description: string;
   courseName: string;

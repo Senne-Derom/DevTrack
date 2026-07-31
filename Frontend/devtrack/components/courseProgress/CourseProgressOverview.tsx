@@ -29,16 +29,15 @@ const CourseProgressOverview: React.FC = () => {
   }, []);
 
   return (
-    // frontend console error nog op te lossen: Each child in a list should have a unique "key" prop.
     <div>
       {courses.map((course) => {
-        const totalTime = course.studyEntries.reduce(
+        const totalTime = (course.studyEntries ?? []).reduce(
           (sum, entry) => sum + entry.timeSpent,
           0,
         );
         console.log(course);
         return (
-          <div>
+          <div key={course.id}>
             <h3>{course.name}</h3>
             <p
               style={{
