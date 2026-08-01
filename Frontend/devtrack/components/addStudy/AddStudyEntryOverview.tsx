@@ -14,7 +14,7 @@ const AddStudyEntryOverview: React.FC = () => {
   const [coursesError, setCoursesError] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
-  const [timeSpent, setTimeSpent] = useState<number>(0);
+  const [timeSpent, setTimeSpent] = useState<number>(0); 
 
   useEffect(() => {
     const loadCourses = async () => {
