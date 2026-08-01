@@ -1,3 +1,5 @@
+"use client";
+
 import { getCourses } from "@/services/StudyService";
 import { Course } from "@/types";
 import { useEffect, useState } from "react";
