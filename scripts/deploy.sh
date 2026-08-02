@@ -27,10 +27,11 @@ if [ "$LOCAL" != "$REMOTE" ]; then
     cd "$FRONTEND"
     npm install
     npm run build
+#    npm run start
 
     echo "Restarting services..."
     sudo systemctl restart backend
-    sudo systemctl restart frontend
+    sudo systemctl restart frontend    
 
     echo "Deployment complete."
 else
