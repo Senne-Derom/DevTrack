@@ -8,6 +8,6 @@ import java.util.List;
 
 @ConfigurationProperties(prefix = "cors")
 public record CorsProperties(
-        @DefaultValue("http://localhost:3000") List<URL> allowedOrigins
+        List<URL> allowedOrigins
 ) {
 }
