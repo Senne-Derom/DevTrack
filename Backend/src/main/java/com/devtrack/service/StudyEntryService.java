@@ -25,6 +25,7 @@ public class StudyEntryService {
         StudyEntry newStudyEntry = new StudyEntry();
         newStudyEntry.setCourse(studyEntryInput.course());
         newStudyEntry.setDescription(studyEntryInput.description());
+        newStudyEntry.setTimeSpent(studyEntryInput.timeSpent());
         newStudyEntry.setDate(studyEntryInput.date());
 
         Course foundCourse = studyEntryInput.course();

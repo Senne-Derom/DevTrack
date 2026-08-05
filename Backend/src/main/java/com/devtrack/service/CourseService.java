@@ -25,6 +25,7 @@ public class CourseService {
 
         Course newCourse = new Course();
         newCourse.setName(courseInput.name());
+        newCourse.setStudy_points(courseInput.study_points());
         return courseRepository.save(newCourse);
     }
 
