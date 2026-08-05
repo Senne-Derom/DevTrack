@@ -2,6 +2,7 @@
 
 import {FormEvent, useState} from "react";
 import {addCourse} from "@/services/StudyService";
+import {revalidateCourses} from "@/app/actions/revalidateCourses";
 
 const AddCourseOverview : React.FC = () => {
     const [name, setName] = useState("");
@@ -11,7 +12,7 @@ const AddCourseOverview : React.FC = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
-    
+
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
@@ -19,25 +20,26 @@ const AddCourseOverview : React.FC = () => {
         setSuccessMessage("");
         setNameError("");
         setstudy_pointsError("");
-        
+
         if (name.trim() === "") {
             setNameError("Name is required");
             return;
         }
-        
+
         if (study_points <= 0) {
             setstudy_pointsError("Study points must be greater than 0");
             return;
         }
-        
+
         try {
             setIsSubmitting(true);
-            
+
             await addCourse({ name, study_points });
-            
+            await revalidateCourses();
+
             setSuccessMessage("Course added successfully");
             setName("");
-            setstudy_points(0);
+            // setstudy_points(0);
         } catch {
             setErrorMessage("An error occurred while adding the course");
         } finally {

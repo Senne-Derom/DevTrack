@@ -20,7 +20,10 @@ export type AddStudyEntryInput = {
 };
 
 export const getCourses = async (): Promise<Course[]> => {
-  const response = await fetch(apiUrl("/courses"));
+  const response = await fetch(apiUrl("/courses"), {
+      // this caches the result of /courses
+      next: {tags: ["courses"]}
+  });
 
   if (!response.ok) {
     const errorText = await response.text();

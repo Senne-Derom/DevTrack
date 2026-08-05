@@ -8,7 +8,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="015f794b-5a80-4d16-a5ec-198837475d50" name="Changes" comment="set up Next.js app">
+      <change afterPath="$PROJECT_DIR$/devtrack/app/actions/revalidateCourses.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/classes/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Backend/target/classes/com/devtrack/DevtrackBackendApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Backend/target/classes/com/devtrack/DevtrackBackendApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtrack/app/study-progress/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/app/study-progress/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtrack/components/addCourse/AddCourseOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/components/addCourse/AddCourseOverview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtrack/components/courseProgress/CourseProgressOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/components/courseProgress/CourseProgressOverview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtrack/components/studyEntryOverview/StudyEntryOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/components/studyEntryOverview/StudyEntryOverview.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtrack/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtrack/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtrack/services/StudyService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/services/StudyService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +143,9 @@
       <workItem from="1785330681307" duration="61000" />
       <workItem from="1785448114703" duration="3285000" />
       <workItem from="1785492769797" duration="2134000" />
-      <workItem from="1785590201270" duration="10622000" />
+      <workItem from="1785590201270" duration="14916000" />
+      <workItem from="1785958471515" duration="1607000" />
+      <workItem from="1785960310258" duration="3357000" />
     </task>
     <task id="LOCAL-00001" summary="set up Next.js app">
       <option name="closed" value="true" />
