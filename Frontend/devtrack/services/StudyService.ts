@@ -34,7 +34,9 @@ export const getCourses = async (): Promise<Course[]> => {
 };
 
 export const getStudyEntries = async (): Promise<StudyEntry[]> => {
-  const response = await fetch(apiUrl("/study_entries"));
+  const response = await fetch(apiUrl("/study_entries"), {
+      next: {tags: ["study_entries"]}
+  });
 
   if (!response.ok) {
     const errorText = await response.text();
