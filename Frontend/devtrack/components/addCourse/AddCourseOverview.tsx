@@ -1,8 +1,8 @@
 "use client";
 
 import {FormEvent, useState} from "react";
-import {addCourse} from "@/services/StudyService";
 import {revalidateCourses} from "@/app/actions/revalidateCourses";
+import {addCourse} from "@/services/CourseService";
 
 const AddCourseOverview : React.FC = () => {
     const [name, setName] = useState("");
@@ -39,7 +39,7 @@ const AddCourseOverview : React.FC = () => {
 
             setSuccessMessage("Course added successfully");
             setName("");
-            // setstudy_points(0);
+            setstudy_points(0);
         } catch {
             setErrorMessage("An error occurred while adding the course");
         } finally {

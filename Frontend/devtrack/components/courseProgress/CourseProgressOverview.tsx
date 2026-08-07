@@ -1,4 +1,5 @@
-import {getCourses} from "@/services/StudyService";
+import {getCourses} from "@/services/CourseService";
+
 
 export default async function CourseProgressOverview() {
   const courses = await getCourses();

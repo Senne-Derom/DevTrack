@@ -1,8 +1,9 @@
 "use client";
 
 import React, { FormEvent, useEffect, useState } from "react";
-import { addStudyEntry, getCourses } from "@/services/StudyService";
 import type { Course } from "@/types";
+import {getCourses} from "@/services/CourseService";
+import {addStudyEntry} from "@/services/StudyEntryService";
 
 const AddStudyEntryOverview: React.FC = () => {
   const [courses, setCourses] = useState<Course[]>([]);
