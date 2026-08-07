@@ -4,11 +4,11 @@ import {FormEvent, useState} from "react";
 import {revalidateCourses} from "@/app/actions/revalidateCourses";
 import {addCourse} from "@/services/CourseService";
 
-const AddCourseOverview : React.FC = () => {
+const AddCourseOverview = () => {
     const [name, setName] = useState("");
-    const [study_points, setstudy_points] = useState<number>(0);
+    const [study_points, setStudy_points] = useState<number>(0);
     const [nameError, setNameError] = useState("");
-    const [study_pointsError, setstudy_pointsError] = useState("");
+    const [study_pointsError, setStudy_pointsError] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
@@ -19,7 +19,7 @@ const AddCourseOverview : React.FC = () => {
         setErrorMessage("");
         setSuccessMessage("");
         setNameError("");
-        setstudy_pointsError("");
+        setStudy_pointsError("");
 
         if (name.trim() === "") {
             setNameError("Name is required");
@@ -27,7 +27,7 @@ const AddCourseOverview : React.FC = () => {
         }
 
         if (study_points <= 0) {
-            setstudy_pointsError("Study points must be greater than 0");
+            setStudy_pointsError("Study points must be greater than 0");
             return;
         }
 
@@ -39,7 +39,7 @@ const AddCourseOverview : React.FC = () => {
 
             setSuccessMessage("Course added successfully");
             setName("");
-            setstudy_points(0);
+            setStudy_points(0);
         } catch {
             setErrorMessage("An error occurred while adding the course");
         } finally {
@@ -78,9 +78,9 @@ const AddCourseOverview : React.FC = () => {
                         min="1"
                         value={study_points}
                         onChange={(e) => {
-                            setstudy_points(Number(e.target.value));
+                            setStudy_points(Number(e.target.value));
                             if (study_pointsError) {
-                                setstudy_pointsError("");
+                                setStudy_pointsError("");
                             }
                         }}
                     />
