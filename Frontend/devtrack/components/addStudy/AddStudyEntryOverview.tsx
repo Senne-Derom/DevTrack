@@ -89,89 +89,96 @@ const AddStudyEntryOverview: React.FC = () => {
   };
 
   return (
-    <div className="add-course-overview">
-      <form className="add-course-form" onSubmit={handleSubmit}>
-        <div className="form-field">
-          <label className="form-label" htmlFor="courseInput">
-            Course name:
-          </label>
-          <select
-            id="courseInput"
-            name="course"
-            value={selectedCourseId}
-            onChange={(event) => setSelectedCourseId(event.target.value)}
-            disabled={isLoadingCourses}
-          >
-            <option value="">
-              {isLoadingCourses ? "Loading courses..." : "--Select a course--"}
-            </option>
-            {courses.map((course) => (
-              <option key={course.id} value={course.id}>
-                {course.name}
-              </option>
-            ))}
-          </select>
-          {coursesError && <p className="status-message status-message-error">{coursesError}</p>}
-        </div>
-        <div className="form-field">
-          <label className="form-label" htmlFor="descriptionInput">
-            Description:
-          </label>
-          <input
-            type="text"
-            id="descriptionInput"
-            name="description"
-            value={description}
-            onChange={(event) => {
-              setDescription(event.target.value);
-              if (descriptionError) {
-                setDescriptionError("");
-              }
-            }}
-            placeholder="Enter description"
-          />
-          {descriptionError && <span className="field-error">{descriptionError}</span>}
-        </div>
-        <div className="form-field">
-          <label className="form-label" htmlFor="timeSpentInput">
-            Time spent:
-          </label>
-          <input
-            type="number"
-            step="0.5"
-            min="0"
-            id="timeSpentInput"
-            name="timeSpent"
-            value={timeSpent}
-            onChange={(event) => setTimeSpent(Number(event.target.value))}
-          />
-        </div>
-        <div className="form-field">
-          <label className="form-label" htmlFor="dateInput">
-            Date:
-          </label>
-          <input
-            type="date"
-            id="dateInput"
-            name="date"
-            value={date}
-            onChange={(event) => setDate(event.target.value)}
-          />
-        </div>
+    <div className="modal-overlay">
+      <div className="modal-content">
+        <div className="add-course-overview">
+          <form className="add-course-form" onSubmit={handleSubmit}>
+            <div className="form-field">
+              <label className="form-label" htmlFor="courseInput">
+                Course name:
+              </label>
+              <select
+                id="courseInput"
+                name="course"
+                value={selectedCourseId}
+                onChange={(event) => setSelectedCourseId(event.target.value)}
+                disabled={isLoadingCourses}
+              >
+                <option value="">
+                  {isLoadingCourses ? "Loading courses..." : "--Select a course--"}
+                </option>
+                {courses.map((course) => (
+                  <option key={course.id} value={course.id}>
+                    {course.name}
+                  </option>
+                ))}
+              </select>
+              {coursesError && <p className="status-message status-message-error">{coursesError}</p>}
+            </div>
+            <div className="form-field">
+              <label className="form-label" htmlFor="descriptionInput">
+                Description:
+              </label>
+              <input
+                type="text"
+                id="descriptionInput"
+                name="description"
+                value={description}
+                onChange={(event) => {
+                  setDescription(event.target.value);
+                  if (descriptionError) {
+                    setDescriptionError("");
+                  }
+                }}
+                placeholder="Enter description"
+              />
+              {descriptionError && <span className="field-error">{descriptionError}</span>}
+            </div>
+            <div className="form-field">
+              <label className="form-label" htmlFor="timeSpentInput">
+                Time spent:
+              </label>
+              <input
+                type="number"
+                step="0.5"
+                min="0"
+                id="timeSpentInput"
+                name="timeSpent"
+                value={timeSpent}
+                onChange={(event) => setTimeSpent(Number(event.target.value))}
+              />
+            </div>
+            <div className="form-field">
+              <label className="form-label" htmlFor="dateInput">
+                Date:
+              </label>
+              <input
+                type="date"
+                id="dateInput"
+                name="date"
+                value={date}
+                onChange={(event) => setDate(event.target.value)}
+              />
+            </div>
 
-        <button
-          type="submit"
-          className="add-course-button"
-          disabled={isSubmitting || isLoadingCourses}
-        >
-          {isSubmitting ? "Adding..." : "Add Study Entry"}
-        </button>
+            <button
+              type="submit"
+              className="add-course-button"
+              disabled={isSubmitting || isLoadingCourses}
+            >
+              {isSubmitting ? "Adding..." : "Add Study Entry"}
+            </button>
 
-        {successMessage && (
-          <p className="status-message status-message-success">{successMessage}</p>
-        )}
-        {errorMessage && <p className="status-message status-message-error">{errorMessage}</p>}
-      </form>
+            {successMessage && (
+              <p className="status-message status-message-success">{successMessage}</p>
+            )}
+            {errorMessage && <p className="status-message status-message-error">{errorMessage}</p>}
+            <button type="button" className="modal-close-button" onClick={() => window.location.href = "/study-progress"}>
+              Close
+            </button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };

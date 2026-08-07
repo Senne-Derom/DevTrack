@@ -8,11 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="015f794b-5a80-4d16-a5ec-198837475d50" name="Changes" comment="set up Next.js app">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/devtrack/app/study-progress/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/app/study-progress/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/devtrack/components/addCourse/AddCourseOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/components/addCourse/AddCourseOverview.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/devtrack/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/styles/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/devtrack/types/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/types/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/devtrack/components/addStudy/AddStudyEntryOverview.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/devtrack/components/addStudy/AddStudyEntryOverview.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +137,7 @@
       <workItem from="1785590201270" duration="14916000" />
       <workItem from="1785958471515" duration="1607000" />
       <workItem from="1785960310258" duration="13146000" />
-      <workItem from="1786131464547" duration="1733000" />
+      <workItem from="1786131464547" duration="2488000" />
     </task>
     <task id="LOCAL-00001" summary="set up Next.js app">
       <option name="closed" value="true" />
