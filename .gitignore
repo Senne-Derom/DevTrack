@@ -1,3 +1,9 @@
 Backend/target/
 Backend/application.yaml
+
 deploy.log
+
+Frontend/.idea/workspace.xml
+Frontend/devtrack/.next
+Frontend/devtrack/next-env.d.ts
+Frontend/devtrack/node_modules
