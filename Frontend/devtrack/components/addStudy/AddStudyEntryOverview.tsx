@@ -4,6 +4,7 @@ import React, { FormEvent, useEffect, useState } from "react";
 import type { Course } from "@/types";
 import {getCourses} from "@/services/CourseService";
 import {addStudyEntry} from "@/services/StudyEntryService";
+import {revalidateStudyEntries} from "@/app/actions/revalidateStudyEntries";
 
 const AddStudyEntryOverview: React.FC = () => {
   const [courses, setCourses] = useState<Course[]>([]);
@@ -77,6 +78,7 @@ const AddStudyEntryOverview: React.FC = () => {
       setDate("");
       setTimeSpent(0);
       setDescription("");
+      await revalidateStudyEntries();
     } catch (error) {
       setErrorMessage(
         error instanceof Error ? error.message : "Failed to add study entry.",
