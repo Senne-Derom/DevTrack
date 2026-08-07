@@ -171,10 +171,8 @@ textarea {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  padding: 28px;
-  background: rgba(10, 10, 10, 0.88);
-  border: 1px solid rgba(255, 51, 51, 0.45);
-  box-shadow: 0 0 24px rgba(255, 0, 0, 0.12);
+  padding: 0;
+  background: transparent;
 }
 
 .form-field {
@@ -287,4 +285,32 @@ textarea {
 .progress-over {
   color: #ff7a7a;
   text-shadow: 0 0 8px rgba(255, 122, 122, 0.28);
+}
+
+/* Modal overlay and container */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: rgba(10, 10, 10, 0.95);
+  border: 1px solid rgba(255, 51, 51, 0.45);
+  padding: 32px;
+  max-width: 520px;
+  width: 90%;
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.2);
+}
+
+.modal-close-button {
+  width: 100%;
+  margin-top: 20px;
 }

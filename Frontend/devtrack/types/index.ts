@@ -13,3 +13,4 @@ export type Course = {
   study_points: number;
   studyEntries?: StudyEntry[];
 };
+

@@ -7,7 +7,6 @@ const Header: React.FC = () => {
       <Link href="/">Home</Link>
       <Link href="/study-progress">Study Progress</Link>
       <Link href="/add-study">Add StudyEntry</Link>
-      <Link href="/add-course">Add Course</Link>
     </header>
   );
 };

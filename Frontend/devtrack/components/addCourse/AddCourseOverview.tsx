@@ -48,50 +48,57 @@ const AddCourseOverview = () => {
     };
 
     return (
-        <div className="add-course-overview">
-            <form className="add-course-form" onSubmit={handleSubmit}>
-                <div className="form-field">
-                    <label className="form-label" htmlFor="courseNameInput">
-                        Name:
-                    </label>
-                    <input
-                        id="courseNameInput"
-                        type="text"
-                        value={name}
-                        onChange={(e) => {
-                            setName(e.target.value);
-                            if (nameError) {
-                                setNameError("");
-                            }
-                        }}
-                        placeholder="Enter course name"
-                    />
-                    {nameError && <span className="field-error">{nameError}</span>}
+        <div className="modal-overlay">
+            <div className="modal-content">
+                <div className="add-course-overview">
+                    <form className="add-course-form" onSubmit={handleSubmit}>
+                        <div className="form-field">
+                            <label className="form-label" htmlFor="courseNameInput">
+                                Name:
+                            </label>
+                            <input
+                                id="courseNameInput"
+                                type="text"
+                                value={name}
+                                onChange={(e) => {
+                                    setName(e.target.value);
+                                    if (nameError) {
+                                        setNameError("");
+                                    }
+                                }}
+                                placeholder="Enter course name"
+                            />
+                            {nameError && <span className="field-error">{nameError}</span>}
+                        </div>
+                        <div className="form-field">
+                            <label className="form-label" htmlFor="studyPointsInput">
+                                Study Points:
+                            </label>
+                            <input
+                                id="studyPointsInput"
+                                type="number"
+                                min="1"
+                                value={study_points}
+                                onChange={(e) => {
+                                    setStudy_points(Number(e.target.value));
+                                    if (study_pointsError) {
+                                        setStudy_pointsError("");
+                                    }
+                                }}
+                            />
+                            {study_pointsError && <span className="field-error">{study_pointsError}</span>}
+                        </div>
+                        <button type="submit" className="add-course-button" disabled={isSubmitting}>
+                            {isSubmitting ? "Adding..." : "Add Course"}
+                        </button>
+                        {errorMessage && <p className="status-message status-message-error">{errorMessage}</p>}
+                        {successMessage && <p className="status-message status-message-success">{successMessage}</p>}
+                        <button type="button" className="modal-close-button" onClick={() => window.location.href = "/study-progress"}>
+                            Close
+                        </button>
+                    </form>
                 </div>
-                <div className="form-field">
-                    <label className="form-label" htmlFor="studyPointsInput">
-                        Study Points:
-                    </label>
-                    <input
-                        id="studyPointsInput"
-                        type="number"
-                        min="1"
-                        value={study_points}
-                        onChange={(e) => {
-                            setStudy_points(Number(e.target.value));
-                            if (study_pointsError) {
-                                setStudy_pointsError("");
-                            }
-                        }}
-                    />
-                    {study_pointsError && <span className="field-error">{study_pointsError}</span>}
-                </div>
-                <button type="submit" className="add-course-button" disabled={isSubmitting}>
-                    {isSubmitting ? "Adding..." : "Add Course"}
-                </button>
-                {errorMessage && <p className="status-message status-message-error">{errorMessage}</p>}
-                {successMessage && <p className="status-message status-message-success">{successMessage}</p>}
-            </form>
+            </div>
         </div>
     )
 }
