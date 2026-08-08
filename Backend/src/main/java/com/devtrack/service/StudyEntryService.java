@@ -7,6 +7,7 @@ import com.devtrack.repository.CourseRepository;
 import com.devtrack.repository.StudyEntryRepository;
 import jakarta.validation.Valid;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -22,6 +23,10 @@ public class StudyEntryService {
     }
 
     public StudyEntry addStudyEntry(@Valid StudyEntryInput studyEntryInput) {
+        if (courseRepository.findByName(studyEntryInput.course().getName()).isEmpty()) {
+            throw new IllegalArgumentException("Course not found");
+        }
+
         StudyEntry newStudyEntry = new StudyEntry();
         newStudyEntry.setCourse(studyEntryInput.course());
         newStudyEntry.setDescription(studyEntryInput.description());
