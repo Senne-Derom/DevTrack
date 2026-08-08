@@ -3,7 +3,7 @@ import Link from "next/link";
 import AddCourseOverview from "@/components/addCourse/AddCourseOverview";
 import React from "react";
 import AddStudyEntryOverview from "@/components/addStudy/AddStudyEntryOverview";
-// import StudyEntryOverview from "@/components/studyEntryOverview/StudyEntryOverview";
+import StudyEntryOverview from "@/components/studyEntryOverview/StudyEntryOverview";
 
 type SearchParamProps = {
     searchParams: Promise<Record<string, string>> | null | undefined;
@@ -26,7 +26,7 @@ export default async function studyProgressPage({ searchParams }: SearchParamPro
       <h2>Progress overview per course</h2>
       <CourseProgressOverview />
       <h2>Overview of all study entries</h2>
-      {/*<StudyEntryOverview />*/}
+      <StudyEntryOverview />
     </div>
   );
 }

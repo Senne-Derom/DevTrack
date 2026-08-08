@@ -21,13 +21,20 @@ export default async function StudyEntryOverview() {
                   <td colSpan={4}>No study entries found.</td>
                 </tr>
               ) : (
-                studyEntries.map((studyEntry) => (
-                  <tr key={`${studyEntry.courseName}-${studyEntry.date.toString()}-${studyEntry.description}`}>
-                    <td>{studyEntry.courseName}</td>
-                    <td>{studyEntry.date.toString()}</td>
-                    <td>{studyEntry.description}</td>
-                    <td>{studyEntry.timeSpent} hours</td>
-                  </tr>
+                [...studyEntries]
+                  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+                  .map((studyEntry) => (
+                    <tr key={`${studyEntry.courseName}-${studyEntry.date.toString()}-${studyEntry.description}`}>
+                      <td>{studyEntry.courseName}</td>
+                      <td>
+                        {(() => {
+                          const d = new Date(studyEntry.date);
+                            return `${d.getDate()}-${d.getMonth() + 1}-${d.getFullYear()}`;
+                        })()}
+                      </td>
+                      <td>{studyEntry.description}</td>
+                      <td>{studyEntry.timeSpent} hours</td>
+                    </tr>
                 ))
               )}
             </tbody>
