@@ -22,6 +22,9 @@ public class CourseService {
         if (existingCourses.isPresent()) {
             throw new RuntimeException("Course with name " + courseInput.name() + " already exists");
         }
+        if (courseInput.study_points() < 0) {
+            throw new RuntimeException("Study points cannot be negative");
+        }
 
         Course newCourse = new Course();
         newCourse.setName(courseInput.name());
