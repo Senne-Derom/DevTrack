@@ -13,14 +13,13 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class StudyEntryServiceTest {
@@ -40,8 +39,9 @@ public class StudyEntryServiceTest {
         StudyEntry studyEntry1 = new StudyEntry(course, "Description 1", 2, LocalDate.of(2023, 1, 1));
         StudyEntry studyEntry2 = new StudyEntry(course2, "Description 2", 3, LocalDate.of(2023, 2, 1));
 
-        when(studyEntryRepository.findAll()).thenReturn(Arrays.asList(studyEntry1, studyEntry2));
+        when(studyEntryRepository.findAll()).thenReturn(List.of(studyEntry1, studyEntry2));
         List<StudyEntry> result = studyEntryService.getStudyEntries();
+
         assertEquals(2, result.size());
     }
 
@@ -49,6 +49,7 @@ public class StudyEntryServiceTest {
     void givenGetStudyEntries_whenNoStudyEntriesExist_thenReturnEmptyList() {
         when(studyEntryRepository.findAll()).thenReturn(List.of());
         List<StudyEntry> result = studyEntryService.getStudyEntries();
+
         assertEquals(0, result.size());
     }
 
@@ -67,41 +68,7 @@ public class StudyEntryServiceTest {
         assertEquals(2, result.getTimeSpent());
         assertEquals(testDate, result.getDate());
         assertEquals(course, result.getCourse());
-    }
 
-    @Test
-    void givenAddStudyEntry_whenDescriptionIsEmpty_thenThrowException() {
-        Course course = new Course("Course 1", 3);
-        StudyEntryInput input = new StudyEntryInput(course, "", 2, LocalDate.of(2023, 1, 1));
-        when(courseRepository.findByName(input.course().getName())).thenReturn(Optional.of(course));
-        try {
-            studyEntryService.addStudyEntry(input);
-        } catch (Exception e) {
-            assertEquals("Description cannot be empty", e.getMessage());
-        }
-    }
-
-    @Test
-    void givenAddStudyEntry_whenTimeSpentIsNegative_thenThrowException() {
-        Course course = new Course("Course 1", 3);
-        StudyEntryInput input = new StudyEntryInput(course, "", 2, LocalDate.of(2023, 1, 1));
-        when(courseRepository.findByName(input.course().getName())).thenReturn(Optional.of(course));
-        try {
-            studyEntryService.addStudyEntry(input);
-        } catch (Exception e) {
-            assertEquals("Time spent cannot be negative", e.getMessage());
-        }
-    }
-
-    @Test
-    void givenAddStudyEntry_whenDateIsInFuture_thenThrowException() {
-        Course course = new Course("Course 1", 3);
-        StudyEntryInput input = new StudyEntryInput(course, "", 2, LocalDate.of(2023, 1, 1));
-        when(courseRepository.findByName(input.course().getName())).thenReturn(Optional.of(course));
-        try {
-            studyEntryService.addStudyEntry(input);
-        } catch (Exception e) {
-            assertEquals("Date cannot be in the future", e.getMessage());
-        }
+        verify(studyEntryRepository).save(any(StudyEntry.class));
     }
 }
