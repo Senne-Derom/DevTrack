@@ -1,10 +1,7 @@
 package com.devtrack.component;
 
-import com.devtrack.DbInitializer;
-import com.devtrack.repository.CourseRepository;
-import com.devtrack.repository.StudyEntryRepository;
-import jakarta.transaction.Transactional;
-import org.junit.jupiter.api.AfterEach;
+import com.devtrack.DbCleaner;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
@@ -19,13 +16,7 @@ public class CourseRestControllerTest {
     private WebTestClient webTestClient;
 
     @Autowired
-    private CourseRepository courseRepository;
-
-    @Autowired
-    private StudyEntryRepository studyEntryRepository;
-
-    @Autowired
-    private DbInitializer dbInitializer;
+    private DbCleaner dbCleaner;
 
     @Test
     void givenGetAllCourses_whenCoursesExist_thenReturnListOfCourses() {
@@ -101,10 +92,8 @@ public class CourseRestControllerTest {
                 .expectStatus().isBadRequest();
     }
 
-    @AfterEach
+    @BeforeEach
     void cleanUp() {
-        studyEntryRepository.deleteAll();
-        courseRepository.deleteAll();
-        dbInitializer.initialize();
+        dbCleaner.cleanDatabase();
     }
 }

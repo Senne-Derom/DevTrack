@@ -1,8 +1,6 @@
 package com.devtrack.component;
 
-import com.devtrack.DbInitializer;
-import com.devtrack.repository.CourseRepository;
-import com.devtrack.repository.StudyEntryRepository;
+import com.devtrack.DbCleaner;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,13 +16,7 @@ public class StudyEntryRestControllerTest {
     private WebTestClient webTestClient;
 
     @Autowired
-    private StudyEntryRepository studyEntryRepository;
-
-    @Autowired
-    private CourseRepository courseRepository;
-
-    @Autowired
-    private DbInitializer dbInitializer;
+    private DbCleaner dbCleaner;
 
     @Test
     void givenGetAllStudyEntries_whenStudyEntriesExist_thenReturnListOfStudyEntries() {
@@ -144,8 +136,6 @@ public class StudyEntryRestControllerTest {
 
     @BeforeEach
     void cleanUp() {
-        studyEntryRepository.deleteAll();
-        courseRepository.deleteAll();
-        dbInitializer.initialize();
+       dbCleaner.cleanDatabase();
     }
 }
