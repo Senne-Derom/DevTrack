@@ -13,7 +13,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureWebTestClient
-public class StudyEntryControllerTest {
+public class StudyEntryRestControllerTest {
     @Autowired
     private WebTestClient webTestClient;
 

@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("study_entries")
-public class StudyEntryController {
+public class StudyEntryRestController {
     private final StudyEntryService studyEntryService;
 
-    public StudyEntryController(StudyEntryService studyEntryService) {
+    public StudyEntryRestController(StudyEntryService studyEntryService) {
         this.studyEntryService = studyEntryService;
     }
 

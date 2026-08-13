@@ -10,10 +10,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/courses")
-public class CourseController {
+public class CourseRestController {
     private final CourseService courseService;
 
-    public CourseController (CourseService courseService) {
+    public CourseRestController(CourseService courseService) {
         this.courseService = courseService;
     }
 
