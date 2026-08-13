@@ -21,4 +21,9 @@ public class DbCleaner {
         courseRepository.deleteAll();
         dbInitializer.initialize();
     }
+
+    public void emptyDatabase() {
+        studyEntryRepository.deleteAll();
+        courseRepository.deleteAll();
+    }
 }
