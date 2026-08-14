@@ -30,6 +30,18 @@ public class CourseRestControllerTest {
     }
 
     @Test
+    void givenGetAllCourses_whenNoCoursesExist_thenReturnEmptyList() {
+        dbCleaner.emptyDatabase();
+        webTestClient.get()
+                .uri("/courses")
+                .exchange()
+                .expectStatus().isOk()
+                .expectBody()
+                .jsonPath("$").isArray()
+                .jsonPath("$.length()").isEqualTo(0);
+    }
+
+    @Test
     void givenAddCourse_whenValidInput_thenReturnSavedCourse() {
         webTestClient.post()
                 .uri("/courses/addCourse")
