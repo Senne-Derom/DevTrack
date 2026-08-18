@@ -23,3 +23,15 @@ When("I click the \"Add Course\" button", () => {
 Then("I should see a success message indicating that the course was added successfully", () => {
     cy.contains("Course added successfully").should("be.visible");
 });
+
+Then("I should see an error message indicating that a name is required", () => {
+    cy.contains("Name is required").should("be.visible");
+});
+
+Then("I should see an error message indicating that study points must be a positive number", () => {
+    cy.get("#studyPointsInput").invoke("prop", "validationMessage").should("not.be.empty");
+});
+
+Then("I should see an error message indicating that the course already exists", () => {
+    cy.contains("An error occurred while adding the course").should("be.visible");
+});
