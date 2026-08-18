@@ -2,9 +2,9 @@
 
 import React, { FormEvent, useEffect, useState } from "react";
 import type { Course } from "@/types";
-import {getCourses} from "@/services/CourseService";
-import {addStudyEntry} from "@/services/StudyEntryService";
-import {revalidateStudyEntries} from "@/app/actions/revalidateStudyEntries";
+import { getCourses } from "@/services/CourseService";
+import { addStudyEntry } from "@/services/StudyEntryService";
+import { revalidateStudyEntries } from "@/app/actions/revalidateStudyEntries";
 
 const AddStudyEntryOverview: React.FC = () => {
   const [courses, setCourses] = useState<Course[]>([]);
@@ -14,7 +14,9 @@ const AddStudyEntryOverview: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoadingCourses, setIsLoadingCourses] = useState(true);
   const [coursesError, setCoursesError] = useState("");
+  const [courseError, setCourseError] = useState("");
   const [descriptionError, setDescriptionError] = useState("");
+  const [dateError, setDateError] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [timeSpent, setTimeSpent] = useState<number>(0);
@@ -44,10 +46,28 @@ const AddStudyEntryOverview: React.FC = () => {
 
     setErrorMessage("");
     setSuccessMessage("");
+    setCourseError("");
     setDescriptionError("");
+    setDateError("");
+
+    let hasValidationErrors = false;
+
+    if (!selectedCourseId.trim()) {
+      setCourseError("Course is required.");
+      hasValidationErrors = true;
+    }
 
     if (description.trim() === "") {
-      setDescriptionError("Description is required");
+      setDescriptionError("Description is required.");
+      hasValidationErrors = true;
+    }
+
+    if (!date) {
+      setDateError("Date is required.");
+      hasValidationErrors = true;
+    }
+
+    if (hasValidationErrors) {
       return;
     }
 
@@ -56,7 +76,7 @@ const AddStudyEntryOverview: React.FC = () => {
     );
 
     if (!selectedCourse) {
-      setErrorMessage("Please select a valid course.");
+      setCourseError("Please select a valid course.");
       return;
     }
 
@@ -101,11 +121,18 @@ const AddStudyEntryOverview: React.FC = () => {
                 id="courseInput"
                 name="course"
                 value={selectedCourseId}
-                onChange={(event) => setSelectedCourseId(event.target.value)}
+                onChange={(event) => {
+                  setSelectedCourseId(event.target.value);
+                  if (courseError) {
+                    setCourseError("");
+                  }
+                }}
                 disabled={isLoadingCourses}
               >
                 <option value="">
-                  {isLoadingCourses ? "Loading courses..." : "--Select a course--"}
+                  {isLoadingCourses
+                    ? "Loading courses..."
+                    : "--Select a course--"}
                 </option>
                 {courses.map((course) => (
                   <option key={course.id} value={course.id}>
@@ -113,7 +140,14 @@ const AddStudyEntryOverview: React.FC = () => {
                   </option>
                 ))}
               </select>
-              {coursesError && <p className="status-message status-message-error">{coursesError}</p>}
+              {courseError && (
+                <span className="field-error">{courseError}</span>
+              )}
+              {coursesError && (
+                <p className="status-message status-message-error">
+                  {coursesError}
+                </p>
+              )}
             </div>
             <div className="form-field">
               <label className="form-label" htmlFor="descriptionInput">
@@ -132,7 +166,9 @@ const AddStudyEntryOverview: React.FC = () => {
                 }}
                 placeholder="Enter description"
               />
-              {descriptionError && <span className="field-error">{descriptionError}</span>}
+              {descriptionError && (
+                <span className="field-error">{descriptionError}</span>
+              )}
             </div>
             <div className="form-field">
               <label className="form-label" htmlFor="timeSpentInput">
@@ -141,7 +177,7 @@ const AddStudyEntryOverview: React.FC = () => {
               <input
                 type="number"
                 step="0.5"
-                min="0"
+                min="0.5"
                 id="timeSpentInput"
                 name="timeSpent"
                 value={timeSpent}
@@ -157,8 +193,14 @@ const AddStudyEntryOverview: React.FC = () => {
                 id="dateInput"
                 name="date"
                 value={date}
-                onChange={(event) => setDate(event.target.value)}
+                onChange={(event) => {
+                  setDate(event.target.value);
+                  if (dateError) {
+                    setDateError("");
+                  }
+                }}
               />
+              {dateError && <span className="field-error">{dateError}</span>}
             </div>
 
             <button
@@ -170,10 +212,20 @@ const AddStudyEntryOverview: React.FC = () => {
             </button>
 
             {successMessage && (
-              <p className="status-message status-message-success">{successMessage}</p>
+              <p className="status-message status-message-success">
+                {successMessage}
+              </p>
             )}
-            {errorMessage && <p className="status-message status-message-error">{errorMessage}</p>}
-            <button type="button" className="modal-close-button" onClick={() => window.location.href = "/study-progress"}>
+            {errorMessage && (
+              <p className="status-message status-message-error">
+                {errorMessage}
+              </p>
+            )}
+            <button
+              type="button"
+              className="modal-close-button"
+              onClick={() => (window.location.href = "/study-progress")}
+            >
               Close
             </button>
           </form>
