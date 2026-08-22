@@ -11,7 +11,7 @@ create table users (
 
 create table courses (
     id serial primary key not null,
-    user_id bigint not null,
+    user_id bigint,
     name varchar(50) not null,
     study_points int not null,
     foreign key (user_id) references users(id)
@@ -19,7 +19,7 @@ create table courses (
 
 create table study_entries (
     id serial primary key not null,
-    course_id bigint not null,
+    course_id bigint,
     description varchar(255) not null,
     time_spent double precision not null,
     date timestamp not null,
