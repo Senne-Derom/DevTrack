@@ -101,6 +101,6 @@ const AddCourseOverview = () => {
             </div>
         </div>
     )
-}
+} 
 
 export default AddCourseOverview;
