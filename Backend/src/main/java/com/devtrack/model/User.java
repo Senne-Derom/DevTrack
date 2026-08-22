@@ -1,6 +1,10 @@
 package com.devtrack.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -11,6 +15,9 @@ public class User {
     private String username;
     private String email;
     private String password;
+    @OneToMany
+    @JsonManagedReference
+    private List<Course> courses = new ArrayList<>();
 
     public User(String username, String email, String password) {
         this.username = username;
@@ -38,5 +45,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void addCourse(Course course) {
+        courses.add(course);
+        course.setUser(this);
     }
 }

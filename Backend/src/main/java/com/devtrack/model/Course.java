@@ -1,5 +1,6 @@
 package com.devtrack.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -17,6 +18,10 @@ public class Course {
     @OneToMany(mappedBy = "course")
     @JsonManagedReference
     private List<StudyEntry> studyEntries = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    @JsonBackReference
+    private User user;
 
     public Course(String name, int study_points) {
         this.name = name;
@@ -53,5 +58,13 @@ public class Course {
     public void removeStudyEntry(StudyEntry entry) {
         studyEntries.remove(entry);
         entry.setCourse(null);
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
