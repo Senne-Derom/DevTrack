@@ -21,11 +21,12 @@ if [ "$LOCAL" != "$REMOTE" ]; then
 
     echo "Building backend..."
     cd "$BACKEND"
-    mvn clean package -DskipTests
+    mvn clean package
 
     echo "Building frontend..."
     cd "$FRONTEND"
     npm install
+    npm run test
     npm run build
 #    npm run start
 
