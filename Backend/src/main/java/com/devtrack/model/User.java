@@ -15,7 +15,7 @@ public class User {
     private String username;
     private String email;
     private String password;
-    @OneToMany
+    @OneToMany(mappedBy = "user")
     @JsonManagedReference
     private List<Course> courses = new ArrayList<>();
 
