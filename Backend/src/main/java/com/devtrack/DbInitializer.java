@@ -41,8 +41,8 @@ public class DbInitializer {
         studyEntryRepository.save(new StudyEntry((Course) courseRepository.findByName("Server and System Management").orElseThrow(), "Made DNS assignment", 2.5, LocalDate.now()));
         studyEntryRepository.save(new StudyEntry((Course) courseRepository.findByName("Software Engineering").orElseThrow(), "Implemented Flyway", 2, LocalDate.now()));
 
-        User user1 = new User("John Doe", "johndoe", passwordEncoder.encode("John1234"));
-        User user2 = new User("Jane Smith", "janesmith", passwordEncoder.encode("Jane1234"));
+        User user1 = new User("John Doe", "johndoe@mail.com", passwordEncoder.encode("John1234"));
+        User user2 = new User("Jane Smith", "janesmith@mail.com", passwordEncoder.encode("Jane1234"));
         userRepository.save(user1);
         userRepository.save(user2);
         course1.setUser(user1);
