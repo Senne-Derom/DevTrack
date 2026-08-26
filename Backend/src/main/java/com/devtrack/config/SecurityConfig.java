@@ -78,6 +78,7 @@ public class SecurityConfig {
                                         .requestMatchers("/error/**").permitAll()
                                         .requestMatchers("/courses/**").permitAll()
                                         .requestMatchers("/study_entries/**").permitAll()
+                                        .requestMatchers("/users/register").permitAll()
                                         // Allow OpenAPI access
                                         .requestMatchers("/v3/api-docs/**").permitAll()
                                         // Allow Swagger UI
