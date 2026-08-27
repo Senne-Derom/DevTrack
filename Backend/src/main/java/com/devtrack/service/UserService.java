@@ -21,9 +21,9 @@ public class UserService {
     public User registerUser(UserInput userInput) {
         User user = new User();
         if (userRepository.existsByUsername(userInput.username())) {
-            throw new IllegalArgumentException("Username already exists");
+            throw new RuntimeException("Username already exists");
         } else if (userRepository.existsByEmail(userInput.email())) {
-            throw new IllegalArgumentException("Email already exists");
+            throw new RuntimeException("Email already exists");
         } else {
             user.setUsername(userInput.username());
             user.setEmail(userInput.email());
