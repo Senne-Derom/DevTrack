@@ -1,5 +1,6 @@
 package com.devtrack.controller;
 
+import com.devtrack.DTO.AuthenticationResponse;
 import com.devtrack.DTO.LoginUserInput;
 import com.devtrack.DTO.RegisterUserInput;
 import com.devtrack.DTO.UserOutput;
@@ -26,7 +27,7 @@ public class UserRestController {
     }
 
     @PostMapping("/login")
-    public UserOutput login(@RequestBody @Valid LoginUserInput loginInput) {
+    public AuthenticationResponse login(@RequestBody @Valid LoginUserInput loginInput) {
         return userService.login(loginInput);
     }
 }

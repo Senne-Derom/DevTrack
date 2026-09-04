@@ -1,11 +1,13 @@
 package com.devtrack.service;
 
+import com.devtrack.DTO.AuthenticationResponse;
 import com.devtrack.DTO.LoginUserInput;
 import com.devtrack.DTO.RegisterUserInput;
 import com.devtrack.DTO.UserOutput;
 import com.devtrack.model.User;
 import com.devtrack.repository.UserRepository;
-import jakarta.validation.Valid;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -13,10 +15,14 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
+    private AuthenticationManager authenticationManager;
+    private JwtService jwtService;
 
-    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder, AuthenticationManager authenticationManager, JwtService jwtService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+        this.authenticationManager = authenticationManager;
+        this.jwtService = jwtService;
     }
 
     public UserOutput registerUser(RegisterUserInput registerUserInput) {
@@ -35,14 +41,16 @@ public class UserService {
         }
     }
 
-    public UserOutput login(@Valid LoginUserInput loginInput) {
-        User user = userRepository.findByUsername(loginInput.username())
-                .orElseThrow(() -> new RuntimeException("Invalid credentials"));
-
-        if (passwordEncoder.matches(loginInput.password(), user.getPassword())) {
-            return new UserOutput(user.getId(), user.getUsername(), user.getEmail());
-        } else {
-            throw new RuntimeException("Invalid credentials");
-        }
+    public AuthenticationResponse login(LoginUserInput loginInput) {
+        final var usernamePasswordAuthentication = new UsernamePasswordAuthenticationToken(loginInput.username(), loginInput.password());
+        final var authentication = authenticationManager.authenticate(usernamePasswordAuthentication);
+        final var user = ((UserDetailsImpl) authentication.getPrincipal()).user();
+        final var token = jwtService.generateToken(user);
+        return new AuthenticationResponse(
+                "Authentication successful.",
+                token,
+                user.getUsername(),
+                user.getEmail()
+        );
     }
 }
