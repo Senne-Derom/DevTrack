@@ -1,6 +1,8 @@
 package com.devtrack.controller;
 
-import com.devtrack.DTO.UserInput;
+import com.devtrack.DTO.LoginUserInput;
+import com.devtrack.DTO.RegisterUserInput;
+import com.devtrack.DTO.UserOutput;
 import com.devtrack.model.User;
 import com.devtrack.service.UserService;
 import jakarta.validation.Valid;
@@ -19,7 +21,12 @@ public class UserRestController {
     }
 
     @PostMapping("/register")
-    public User registerUser(@RequestBody @Valid UserInput userInput) {
-        return userService.registerUser(userInput);
+    public UserOutput registerUser(@RequestBody @Valid RegisterUserInput registerUserInput) {
+        return userService.registerUser(registerUserInput);
+    }
+
+    @PostMapping("/login")
+    public UserOutput login(@RequestBody @Valid LoginUserInput loginInput) {
+        return userService.login(loginInput);
     }
 }

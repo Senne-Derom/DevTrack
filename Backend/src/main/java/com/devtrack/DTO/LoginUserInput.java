@@ -1,4 +1,6 @@
 package com.devtrack.DTO;
 
-public class LoginUserInput {
+public record LoginUserInput(
+        String username,
+        String password) {
 }

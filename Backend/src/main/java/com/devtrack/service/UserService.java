@@ -1,12 +1,13 @@
 package com.devtrack.service;
 
-import com.devtrack.DTO.UserInput;
+import com.devtrack.DTO.LoginUserInput;
+import com.devtrack.DTO.RegisterUserInput;
+import com.devtrack.DTO.UserOutput;
 import com.devtrack.model.User;
 import com.devtrack.repository.UserRepository;
+import jakarta.validation.Valid;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Objects;
 
 @Service
 public class UserService {
@@ -18,18 +19,30 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public User registerUser(UserInput userInput) {
+    public UserOutput registerUser(RegisterUserInput registerUserInput) {
         User user = new User();
-        if (userRepository.existsByUsername(userInput.username())) {
+        if (userRepository.existsByUsername(registerUserInput.username())) {
             throw new RuntimeException("Username already exists");
-        } else if (userRepository.existsByEmail(userInput.email())) {
+        } else if (userRepository.existsByEmail(registerUserInput.email())) {
             throw new RuntimeException("Email already exists");
         } else {
-            user.setUsername(userInput.username());
-            user.setEmail(userInput.email());
-            String encodedPassword = passwordEncoder.encode(userInput.password());
+            user.setUsername(registerUserInput.username());
+            user.setEmail(registerUserInput.email());
+            String encodedPassword = passwordEncoder.encode(registerUserInput.password());
             user.setPassword(encodedPassword);
-            return userRepository.save(user);
+            userRepository.save(user);
+            return new UserOutput(user.getId(), user.getUsername(), user.getEmail());
+        }
+    }
+
+    public UserOutput login(@Valid LoginUserInput loginInput) {
+        User user = userRepository.findByUsername(loginInput.username())
+                .orElseThrow(() -> new RuntimeException("Invalid credentials"));
+
+        if (passwordEncoder.matches(loginInput.password(), user.getPassword())) {
+            return new UserOutput(user.getId(), user.getUsername(), user.getEmail());
+        } else {
+            throw new RuntimeException("Invalid credentials");
         }
     }
 }

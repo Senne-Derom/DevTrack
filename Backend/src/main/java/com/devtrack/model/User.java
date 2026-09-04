@@ -55,4 +55,12 @@ public class User {
         courses.add(course);
         course.setUser(this);
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public Long getId() {
+        return id;
+    }
 }
