@@ -2,7 +2,7 @@ package com.devtrack.DTO;
 
 import jakarta.validation.constraints.NotBlank;
 
-public record UserInput(
+public record RegisterUserInput(
         @NotBlank(message = "Username is required")
         String username,
         @NotBlank(message = "Email is required")
