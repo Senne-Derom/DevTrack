@@ -1,4 +1,4 @@
 package com.devtrack.DTO;
 
-public class UserOutput {
+public record UserOutput(Long id, String username, String email) {
 }
