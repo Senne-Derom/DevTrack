@@ -5,9 +5,9 @@ export default async function CourseProgressOverview() {
   const courses = await getCourses();
 
     return (
-    <div className="course-progress-overview">
-        <div className="table-wrapper">
-          <table className="course-progress-table">
+    <div className="table-overview">
+        <div className="table-wrapper panel">
+          <table className="data-table">
             <thead>
               <tr>
                 <th>Course</th>

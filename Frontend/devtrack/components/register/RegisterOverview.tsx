@@ -23,22 +23,33 @@ export default function RegisterOverview() {
     }
 
     return (
-        <div>
-            <h1>Register Overview</h1>
-            <form action="/register" onSubmit={onSubmit}>
-                <input type="text" name="username" placeholder="Username" required
-                       onChange={(event) => {
-                           setUsername(event.target.value);
-                       }} />
-                <input type="email" name="email" placeholder="Email" required
-                       onChange={(event) => {
-                           setEmail(event.target.value);
-                       }} />
-                <input type="password" name="password" placeholder="Password" required
-                       onChange={(event) => {
-                           setPassword(event.target.value);
-                       }} />
-                <button type="submit">Register</button>
+        <div className="form-card panel">
+            <div className="page-header">
+                <h1>Register</h1>
+            </div>
+            <form className="form" action="/register" onSubmit={onSubmit}>
+                <div className="form-field">
+                    <label className="form-label" htmlFor="usernameInput">Username:</label>
+                    <input id="usernameInput" type="text" name="username" placeholder="Enter username" required
+                           onChange={(event) => {
+                               setUsername(event.target.value);
+                           }} />
+                </div>
+                <div className="form-field">
+                    <label className="form-label" htmlFor="emailInput">Email:</label>
+                    <input id="emailInput" type="email" name="email" placeholder="Enter email" required
+                           onChange={(event) => {
+                               setEmail(event.target.value);
+                           }} />
+                </div>
+                <div className="form-field">
+                    <label className="form-label" htmlFor="passwordInput">Password:</label>
+                    <input id="passwordInput" type="password" name="password" placeholder="Enter password" required
+                           onChange={(event) => {
+                               setPassword(event.target.value);
+                           }} />
+                </div>
+                <button type="submit" className="form-submit">Register</button>
             </form>
         </div>
     )

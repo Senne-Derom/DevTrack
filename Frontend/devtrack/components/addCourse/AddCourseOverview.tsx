@@ -50,8 +50,8 @@ const AddCourseOverview = () => {
     return (
         <div className="modal-overlay">
             <div className="modal-content">
-                <div className="add-course-overview">
-                    <form className="add-course-form" onSubmit={handleSubmit}>
+                <div className="form-card">
+                    <form className="form" onSubmit={handleSubmit}>
                         <div className="form-field">
                             <label className="form-label" htmlFor="courseNameInput">
                                 Name:
@@ -88,7 +88,7 @@ const AddCourseOverview = () => {
                             />
                             {study_pointsError && <span className="field-error">{study_pointsError}</span>}
                         </div>
-                        <button type="submit" className="add-course-button" disabled={isSubmitting}>
+                        <button type="submit" className="form-submit" disabled={isSubmitting}>
                             {isSubmitting ? "Adding..." : "Add Course"}
                         </button>
                         {errorMessage && <p className="status-message status-message-error">{errorMessage}</p>}

@@ -15,18 +15,29 @@ export default async function studyProgressPage({ searchParams }: SearchParamPro
     const showAddStudyEntry = params?.["show-add-study-entry"] === "true";
 
   return (
-    <div>
-      <Link href="/study-progress?show-add-course=true" className="button">Add course</Link>
-      <Link href="/study-progress?show-add-study-entry=true" className="button">Add study entry</Link>
+    <div className="page">
+      <div className="page-header">
+        <h1>Study Progress</h1>
+      </div>
+
+      <div className="page-actions">
+        <Link href="/study-progress?show-add-course=true" className="button">Add course</Link>
+        <Link href="/study-progress?show-add-study-entry=true" className="button">Add study entry</Link>
+      </div>
 
       {showAddCourse && <AddCourseOverview />}
 
       {showAddStudyEntry && <AddStudyEntryOverview />}
 
-      <h2>Progress overview per course</h2>
-      <CourseProgressOverview />
-      <h2>Overview of all study entries</h2>
-      <StudyEntryOverview />
+      <div className="section">
+        <h2 className="section-title">Progress overview per course</h2>
+        <CourseProgressOverview />
+      </div>
+
+      <div className="section">
+        <h2 className="section-title">Overview of all study entries</h2>
+        <StudyEntryOverview />
+      </div>
     </div>
   );
 }

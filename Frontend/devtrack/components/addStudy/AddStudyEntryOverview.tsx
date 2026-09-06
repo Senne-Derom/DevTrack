@@ -111,8 +111,8 @@ const AddStudyEntryOverview: React.FC = () => {
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <div className="add-course-overview">
-          <form className="add-course-form" onSubmit={handleSubmit}>
+        <div className="form-card">
+          <form className="form" onSubmit={handleSubmit}>
             <div className="form-field">
               <label className="form-label" htmlFor="courseInput">
                 Course name:
@@ -205,7 +205,7 @@ const AddStudyEntryOverview: React.FC = () => {
 
             <button
               type="submit"
-              className="add-course-button"
+              className="form-submit"
               disabled={isSubmitting || isLoadingCourses}
             >
               {isSubmitting ? "Adding..." : "Add Study Entry"}
