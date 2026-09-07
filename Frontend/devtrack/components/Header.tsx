@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/study-progress", label: "Study Progress" },
   { href: "/register", label: "Register" },
+  {href: "/login", label: "Login"}
 ];
 
 const Header: React.FC = () => {
