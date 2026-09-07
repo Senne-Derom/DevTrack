@@ -21,7 +21,7 @@ public class JwtService {
         this.jwtEncoder = jwtEncoder;
     }
 
-    public String generateToken(String username, String email) {
+    public String generateToken(User user) {
         final var now = Instant.now();
         final var expiresAt = now.plus(jwtProperties.token().lifetime());
         final var header = JwsHeader.with(MacAlgorithm.HS256).build();
@@ -29,12 +29,9 @@ public class JwtService {
                 .issuer(jwtProperties.token().issuer())
                 .issuedAt(now)
                 .expiresAt(expiresAt)
-                .subject(username)
-                .claim("email", email)
+                .subject(user.getUsername())
+                .claim("email", user.getEmail())
                 .build();
         return jwtEncoder.encode(JwtEncoderParameters.from(header, claims)).getTokenValue();
-    }
-    public String generateToken(User user) {
-        return generateToken(user.getUsername(), user.getEmail());
     }
 }

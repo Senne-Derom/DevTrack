@@ -3,7 +3,7 @@ package com.devtrack.DTO;
 
 public record AuthenticationResponse(
         String message,
-        String token,
+        String authToken,
         String username,
         String email
 ) {
