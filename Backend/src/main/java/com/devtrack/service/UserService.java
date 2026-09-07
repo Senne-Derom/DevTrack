@@ -6,10 +6,17 @@ import com.devtrack.DTO.RegisterUserInput;
 import com.devtrack.DTO.UserOutput;
 import com.devtrack.model.User;
 import com.devtrack.repository.UserRepository;
+import jakarta.servlet.http.HttpServletResponse;
+import org.apache.tomcat.util.http.SameSiteCookies;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseCookie;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Map;
 
 @Service
 public class UserService {
@@ -52,5 +59,21 @@ public class UserService {
                 user.getUsername(),
                 user.getEmail()
         );
+    }
+
+    public ResponseEntity<Object> logout(HttpServletResponse response) {
+
+        // Create a cookie that overwrites the existing authToken and immediately expires
+        ResponseCookie cookie = ResponseCookie.from("authToken", "")
+                .httpOnly(true)
+                .secure(true)
+                .path("/")
+                .maxAge(0) // expires immediately
+                .sameSite(SameSiteCookies.NONE.toString())
+                .build();
+
+        response.addHeader(HttpHeaders.SET_COOKIE, cookie.toString());
+
+        return ResponseEntity.ok(Map.of("message", "Logged out successfully"));
     }
 }

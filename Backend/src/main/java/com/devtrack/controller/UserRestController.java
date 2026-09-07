@@ -6,7 +6,9 @@ import com.devtrack.DTO.RegisterUserInput;
 import com.devtrack.DTO.UserOutput;
 import com.devtrack.model.User;
 import com.devtrack.service.UserService;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,5 +31,10 @@ public class UserRestController {
     @PostMapping("/login")
     public AuthenticationResponse login(@RequestBody @Valid LoginUserInput loginInput) {
         return userService.login(loginInput);
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<Object> logout(HttpServletResponse response) {
+        return userService.logout(response);
     }
 }
