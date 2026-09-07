@@ -33,23 +33,27 @@ public class DbInitializer {
         Course course1 = new Course("Programming 1", 6);
         Course course2 = new Course("Server and System Management", 6);
         Course course3 = new Course("Software Engineering", 6);
-        courseRepository.save(course1);
-        courseRepository.save(course2);
-        courseRepository.save(course3);
 
-        studyEntryRepository.save(new StudyEntry((Course) courseRepository.findByName("Programming 1").orElseThrow(), "Completed exercises from class", 1, LocalDate.now()));
-        studyEntryRepository.save(new StudyEntry((Course) courseRepository.findByName("Server and System Management").orElseThrow(), "Made DNS assignment", 2.5, LocalDate.now()));
-        studyEntryRepository.save(new StudyEntry((Course) courseRepository.findByName("Software Engineering").orElseThrow(), "Implemented Flyway", 2, LocalDate.now()));
+        StudyEntry entry1 = new StudyEntry(course1, "Completed exercises from class", 1, LocalDate.now());
+        StudyEntry entry2 = new StudyEntry(course2, "Made DNS assignment", 2.5, LocalDate.now());
+        StudyEntry entry3 = new StudyEntry(course3, "Implemented Flyway", 2, LocalDate.now());
 
         User user1 = new User("John Doe", "johndoe@mail.com", passwordEncoder.encode("John1234"));
         User user2 = new User("Jane Smith", "janesmith@mail.com", passwordEncoder.encode("Jane1234"));
+
         userRepository.save(user1);
         userRepository.save(user2);
+
         course1.setUser(user1);
         course2.setUser(user1);
         course3.setUser(user2);
+
         courseRepository.save(course1);
         courseRepository.save(course2);
         courseRepository.save(course3);
+
+        studyEntryRepository.save(entry1);
+        studyEntryRepository.save(entry2);
+        studyEntryRepository.save(entry3);
     }
 }
