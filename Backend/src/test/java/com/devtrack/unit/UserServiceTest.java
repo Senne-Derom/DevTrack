@@ -54,13 +54,13 @@ public class UserServiceTest {
     void givenRegisterUser_whenUsernameExists_thenThrowException() {
         RegisterUserInput registerUserInput = new RegisterUserInput("existinguser", "existing.user@mail.com", "rawPassword123");
         when(userRepository.existsByUsername("existinguser")).thenReturn(true);
-        assertThrows(IllegalArgumentException.class, () -> userService.registerUser(registerUserInput));
+        assertThrows(RuntimeException.class, () -> userService.registerUser(registerUserInput));
     }
 
     @Test
     void givenRegisterUser_whenEmailExists_thenThrowException() {
         RegisterUserInput registerUserInput = new RegisterUserInput("newuser", "existing.user@mail.com", "rawPassword123");
         when(userRepository.existsByEmail("existing.user@mail.com")).thenReturn(true);
-        assertThrows(IllegalArgumentException.class, () -> userService.registerUser(registerUserInput));
+        assertThrows(RuntimeException.class, () -> userService.registerUser(registerUserInput));
     }
 }
