@@ -15,6 +15,6 @@ export default function LoginOverview() {
                 </div>
                 <button type="submit" className="form-submit">Login</button>
             </form>
-        </div> 
+        </div>
     )
 }
