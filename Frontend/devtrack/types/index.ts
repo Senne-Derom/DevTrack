@@ -14,3 +14,8 @@ export type Course = {
   studyEntries?: StudyEntry[];
 };
 
+export type User = {
+  id?: number;
+  username: string;
+  password: string;
+}
