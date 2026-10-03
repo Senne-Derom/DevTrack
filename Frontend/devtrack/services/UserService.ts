@@ -27,3 +27,29 @@ export const registerUser = async (user: RegisterUserInput) => {
 
     return response.json();
 }
+
+export const authenticate = async (user: User): Promise<User | null> => {
+    const response = await fetch(apiUrl("/users/login"), {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+    });
+
+    if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData?.message || `Authentication failed`);
+    }
+
+    const text = await response.text();
+
+    if (!text) {
+        console.log("Empty response from backend");
+        return null;
+    }
+
+    const data = JSON.parse(text);
+
+    return data || null;
+}
